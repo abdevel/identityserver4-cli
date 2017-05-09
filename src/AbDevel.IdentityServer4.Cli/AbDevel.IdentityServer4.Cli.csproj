@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <PackageId>AbDevel.IdentityServer4.Cli</PackageId>
+    <BaseOutputPath>../out/AbDevel.IdentityServer4.Cli/bin</BaseOutputPath>
+    <BaseIntermediateOutputPath>../out/AbDevel.IdentityServer4.Cli/obj</BaseIntermediateOutputPath>
+    <AssemblyName>is4auth</AssemblyName>
+    <RuntimeIdentifiers>osx.10.12-x64;win10-x64;debian.8-x64</RuntimeIdentifiers>
+  </PropertyGroup>
+  <ItemGroup Label="Package References">
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.0.0" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Extensions.CommandLineUtils" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="1.1.1" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="1.1.1" />
+  </ItemGroup>
+  <ItemGroup Label="CLI Tool References">
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
+  </ItemGroup>
+</Project>

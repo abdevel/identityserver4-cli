@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  is4auth:
+    image: "microsoft/dotnet:1.1.1-sdk"
+    entrypoint: /app/entrypoint.sh
+    volumes:
+      - ./src/AbDevel.IdentityServer4.Cli:/app
+    restart: always
+    depends_on:
+      - db
+    environment:
+      IS4_CONNECTION_STRING: Server=db;User Id=is4;Password=is4;Database=is4
+      DOTNET_USE_POLLING_FILE_WATCHER: 1
+  db:
+    image: "mariadb:latest"
+    volumes:
+      - ./db/schema/app:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: is4
+      MYSQL_DATABASE: is4
+      MYSQL_USER: is4
+      MYSQL_PASSWORD: is4
+volumes:
+  db_data:
